@@ -195,13 +195,13 @@ func swIfMetrics() (L []*model.MetricValue) {
 										L = append(L, GaugeValueIp(ts, ip, "switch.if.InBroadcastPkt", IfHCInBroadcastPkts, ifNameTag, ifIndexTag))
 									} else {
 										log.Println(ip, ifNameTag, "switch.if.InBroadcastPkt", "out of range, value is", IfHCInBroadcastPkts, "Limit is", broadcastlimit)
-										log.Println("IfHCInBroadcastPkts This Time:", ifStat.IfHCInBroadcastPkts, "Last Time:", lastifStat.IfHCOutMulticastPkts, "ts", ts, "limit", broadcastlimit)
+										log.Println(ip, ifNameTag, "IfHCInBroadcastPkts This Time:", ifStat.IfHCInBroadcastPkts, "Last Time:", lastifStat.IfHCOutMulticastPkts, "ts", ts, "limit", broadcastlimit)
 									}
 									if limitCheck(IfHCOutBroadcastPkts, broadcastlimit) && lastifStat.IfHCOutBroadcastPkts > 0 {
 										L = append(L, GaugeValueIp(ts, ip, "switch.if.OutBroadcastPkt", IfHCOutBroadcastPkts, ifNameTag, ifIndexTag))
 									} else {
 										log.Println(ip, ifNameTag, "switch.if.OutBroadcastPkt", "out of range, value is", IfHCOutBroadcastPkts, "Limit is", broadcastlimit)
-										log.Println("IfHCOutBroadcastPkts This Time:", ifStat.IfHCOutBroadcastPkts, "Last Time:", lastifStat.IfHCOutMulticastPkts, "ts", ts, "limit", broadcastlimit)
+										log.Println(ip, ifNameTag, "IfHCOutBroadcastPkts This Time:", ifStat.IfHCOutBroadcastPkts, "Last Time:", lastifStat.IfHCOutMulticastPkts, "ts", ts, "limit", broadcastlimit)
 									}
 								}
 							}
@@ -219,13 +219,13 @@ func swIfMetrics() (L []*model.MetricValue) {
 										L = append(L, GaugeValueIp(ts, ip, "switch.if.InMulticastPkt", IfHCInMulticastPkts, ifNameTag, ifIndexTag))
 									} else {
 										log.Println(ip, ifNameTag, "switch.if.InMulticastPkt", "out of range, value is", IfHCInMulticastPkts, "Limit is", multicastlimit)
-										log.Println("IfHCInMulticastPkts This Time:", ifStat.IfHCInMulticastPkts, "Last Time:", lastifStat.IfHCOutMulticastPkts, "ts", ts, "limit", multicastlimit)
+										log.Println(ip, ifNameTag, "IfHCInMulticastPkts This Time:", ifStat.IfHCInMulticastPkts, "Last Time:", lastifStat.IfHCOutMulticastPkts, "ts", ts, "limit", multicastlimit)
 									}
 									if limitCheck(IfHCOutMulticastPkts, multicastlimit) && lastifStat.IfHCOutMulticastPkts > 0 {
 										L = append(L, GaugeValueIp(ts, ip, "switch.if.OutMulticastPkt", IfHCOutMulticastPkts, ifNameTag, ifIndexTag))
 									} else {
 										log.Println(ip, ifNameTag, "switch.if.OutMulticastPkt", "out of range, value is", IfHCOutMulticastPkts, "Limit is", multicastlimit)
-										log.Println("IfHCOutMulticastPkts This Time:", ifStat.IfHCOutMulticastPkts, "Last Time:", lastifStat.IfHCOutMulticastPkts, "ts", ts, "limit", multicastlimit)
+										log.Println(ip, ifNameTag, "IfHCOutMulticastPkts This Time:", ifStat.IfHCOutMulticastPkts, "Last Time:", lastifStat.IfHCOutMulticastPkts, "ts", ts, "limit", multicastlimit)
 									}
 								}
 							}
@@ -244,13 +244,13 @@ func swIfMetrics() (L []*model.MetricValue) {
 										L = append(L, GaugeValueIp(ts, ip, "switch.if.InDiscards", IfInDiscards, ifNameTag, ifIndexTag))
 									} else {
 										log.Println(ip, ifNameTag, "switch.if.InDiscards", "out of range, value is", IfInDiscards, "Limit is", discardlimit)
-										log.Println("IfInDiscards This Time:", ifStat.IfInDiscards, "Last Time:", lastifStat.IfInDiscards, "ts", ts, "limit", discardlimit)
+										log.Println(ip, ifNameTag, "IfInDiscards This Time:", ifStat.IfInDiscards, "Last Time:", lastifStat.IfInDiscards, "ts", ts, "limit", discardlimit)
 									}
 									if limitCheck(IfOutDiscards, discardlimit) && lastifStat.IfOutDiscards > 0 {
 										L = append(L, GaugeValueIp(ts, ip, "switch.if.OutDiscards", IfOutDiscards, ifNameTag, ifIndexTag))
 									} else {
 										log.Println(ip, ifNameTag, "switch.if.OutDiscards", "out of range, value is", IfOutDiscards, "Limit is", discardlimit)
-										log.Println("IfOutDiscards This Time:", ifStat.IfOutDiscards, "Last Time:", lastifStat.IfOutDiscards, "ts", ts, "limit", discardlimit)
+										log.Println(ip, ifNameTag, "IfOutDiscards This Time:", ifStat.IfOutDiscards, "Last Time:", lastifStat.IfOutDiscards, "ts", ts, "limit", discardlimit)
 									}
 								}
 							}
@@ -275,7 +275,7 @@ func swIfMetrics() (L []*model.MetricValue) {
 										L = append(L, GaugeValueIp(ts, ip, "switch.if.OutErrors", IfOutErrors, ifNameTag, ifIndexTag))
 									} else {
 										log.Println(ip, ifNameTag, "switch.if.OutErrors", "out of range, value is", IfOutErrors, "Limit is", errorlimit)
-										log.Println("IfOutErrors This Time:", ifStat.IfOutErrors, "Last Time:", lastifStat.IfOutErrors, "ts", ts, "limit", errorlimit)
+										log.Println(ip, ifNameTag, "IfOutErrors This Time:", ifStat.IfOutErrors, "Last Time:", lastifStat.IfOutErrors, "ts", ts, "limit", errorlimit)
 									}
 								}
 							}
@@ -293,7 +293,7 @@ func swIfMetrics() (L []*model.MetricValue) {
 										L = append(L, GaugeValueIp(ts, ip, "switch.if.InUnknownProtos", IfInUnknownProtos, ifNameTag, ifIndexTag))
 									} else {
 										log.Println(ip, ifNameTag, "switch.if.InUnknownProtos", "out of range, value is", IfInUnknownProtos, "Limit is", unknownProtoslimit)
-										log.Println("IfOutQLen This Time:", ifStat.IfInUnknownProtos, "Last Time:", lastifStat.IfInUnknownProtos, "ts", ts, "limit", unknownProtoslimit)
+										log.Println(ip, ifNameTag, "IfOutQLen This Time:", ifStat.IfInUnknownProtos, "Last Time:", lastifStat.IfInUnknownProtos, "ts", ts, "limit", unknownProtoslimit)
 									}
 								}
 							}
@@ -311,7 +311,7 @@ func swIfMetrics() (L []*model.MetricValue) {
 										L = append(L, GaugeValueIp(ts, ip, "switch.if.OutQLen", IfOutQLen, ifNameTag, ifIndexTag))
 									} else {
 										log.Println(ip, ifNameTag, "switch.if.OutQLen", "out of range, value is", IfOutQLen, "Limit is", outQlenlimit)
-										log.Println("IfOutQLen This Time:", ifStat.IfOutQLen, "Last Time:", lastifStat.IfOutQLen, "ts", ts, "limit", outQlenlimit)
+										log.Println(ip, ifNameTag, "IfOutQLen This Time:", ifStat.IfOutQLen, "Last Time:", lastifStat.IfOutQLen, "ts", ts, "limit", outQlenlimit)
 									}
 								}
 							}
@@ -331,13 +331,13 @@ func swIfMetrics() (L []*model.MetricValue) {
 										L = append(L, GaugeValueIp(ts, ip, "switch.if.InPkts", IfHCInUcastPkts, ifNameTag, ifIndexTag))
 									} else {
 										log.Println(ip, ifNameTag, "switch.if.InPkts", "out of range, value is", IfHCInUcastPkts, "Limit is", pktlimit)
-										log.Println("IfHCInUcastPkts This Time:", ifStat.IfHCInUcastPkts, "Last Time:", lastifStat.IfHCInUcastPkts, "ts", ts, "limit", pktlimit)
+										log.Println(ip, ifNameTag, "IfHCInUcastPkts This Time:", ifStat.IfHCInUcastPkts, "Last Time:", lastifStat.IfHCInUcastPkts, "ts", ts, "limit", pktlimit)
 									}
 									if limitCheck(IfHCOutUcastPkts, pktlimit) && lastifStat.IfHCOutUcastPkts > 0 {
 										L = append(L, GaugeValueIp(ts, ip, "switch.if.OutPkts", IfHCOutUcastPkts, ifNameTag, ifIndexTag))
 									} else {
 										log.Println(ip, ifNameTag, "switch.if.OutPkts", "out of range, value is", IfHCOutUcastPkts, "Limit is", pktlimit)
-										log.Println("IfHCOutUcastPkts This Time:", ifStat.IfHCOutUcastPkts, "Last Time:", lastifStat.IfHCOutUcastPkts, "ts", ts, "limit", pktlimit)
+										log.Println(ip, ifNameTag, "IfHCOutUcastPkts This Time:", ifStat.IfHCOutUcastPkts, "Last Time:", lastifStat.IfHCOutUcastPkts, "ts", ts, "limit", pktlimit)
 									}
 								}
 							}
